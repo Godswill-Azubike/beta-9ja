@@ -18,7 +18,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="col-md-8 mt-5">
             <div class="card">
                 <div class="card-header">{{ __('Upload App Update') }}</div>
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     @endif
-                  
+
                     @if ($errors->any())
                     <div class="alert alert-danger ml-3 mr-3">
                         <ul>
@@ -49,9 +49,7 @@
                         </ul>
                     </div>
                     @endif
-                  
-
-                    <form action="{{ route('update') }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('update') }}" method="post" enctype="application/x-www-form-urlencoded">
                         @csrf
                         <label for="App">chose an App</label>
                         <input type="file" name="app" class="form-control mb-2">

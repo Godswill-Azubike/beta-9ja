@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function update(Request $request)
     {
         $request->validate([
-            // 'app' => 'required|mimes:apk,APK'
+            'app' => 'required|mimes:apk'
         ]);
 
         $new_app = New update();
@@ -40,7 +40,9 @@ class HomeController extends Controller
         }
 
         // $extension = $request->app->;
-        $app_name = "beta-9ja".$Id.".".getClientOriginalName();
+        $extension = $request->app->extension();
+        $app_name = "beta-9ja".$Id.".".$extension;
+        // $app_name = "beta-9ja".$Id.".".getClientOriginalName();
 
         $new_app->app = 'app/'.$app_name;
         $new_app->save();
